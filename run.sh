@@ -1,4 +1,4 @@
  
 #!/bin/bash
 
-python3 ./src/process.py
+python3 ./src/process.py 
