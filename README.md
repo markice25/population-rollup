@@ -1,10 +1,10 @@
 # population-rollup
 This project is developed with Python.
 The purpose is to analyze Census Tract Population data from 2000 to 2010, and calculate the following metrics for each Core Based Statistical Area
-*total number of census tracts
-*total population in 2000
-*total population in 2010 
-*average population percent change for census tracts in this Core Based Statistical Area
+* total number of census tracts
+* total population in 2000
+* total population in 2010 
+* average population percent change for census tracts in this Core Based Statistical Area
 
 # Table of Contents
 1. [Problem](README.md#problem)
