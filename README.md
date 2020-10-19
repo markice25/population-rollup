@@ -47,10 +47,10 @@ Multi-processing is implemented to speed up data processing, especially when dea
 
 
 # Performance Test
-1.  Data augmentation
+## Data augmentation
 The provided data set is only 10MB. In order to test the performance of multi-processing, data is augmented by repeating the same data by 1000 times. The augmented data-set is 5GB
-2.  Multi-processing vs Sequential execution
-Performance test is run on a computer with Intel CORE i5 8th Gen, and memeroy of 8G. Multi-processing program with 8 process takes 65 seconds to finish while sequential execution takes 278 seconds to complete. Multi-processing program is much more efficient!
+## Multi-processing vs Sequential execution
+Performance test is run on a computer with Intel CORE i5 8th Gen and memeroy of 8G. Multi-processing program with 8 process takes 65 seconds to finish while sequential execution takes 278 seconds. Multi-processing program is much more efficient!
 
 # Run instruction
 <pre>
