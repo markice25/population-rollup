@@ -1,5 +1,6 @@
-# population-rollup
+# Population Rollup
 This project is developed with Python.
+
 The purpose is to analyze Census Tract Population data from 2000 to 2010, and calculate the following metrics for each Core Based Statistical Area
 * total number of census tracts
 * total population in 2000
@@ -13,6 +14,10 @@ The purpose is to analyze Census Tract Population data from 2000 to 2010, and ca
 4. [Run Instruction](README.md#Run-Instruction)
 
 # Problem
+The federal Census produces a plethora of datasets on a variety of topics tabulated in a number of different ways. In particular, the Census is known for population counts, including down to census tracts, or relatively small areas that average 4,000 inhabitants. Data at that detailed level is useful, but sometimes it's also helpful to roll up some of the information.
+
+This project take the [2000 to 2010 Census Tract Population Change](https://www.census.gov/data/tables/time-series/dec/metro-micro/tract-change-00-10.html) dataset, perform a few calculations and then write out a new file with the summarized including total number of census tracts, total population in 2000, total population in 2010 and average population percent change for census tracts in this Core Based Statistical Area.
+
 
 ## Input
 The input file is taken from the data file at [2000 to 2010 Census Tract Population Change](https://www.census.gov/data/tables/time-series/dec/metro-micro/tract-change-00-10.html), which contains population counts for census tracts and how much they've changed over the decade. While census tracts are fairly small geographical areas inhabited by 1,200 to 8,000 people, they also can be grouped into larger Metropolitan and Micropolitan Statistical Areas called Core Based Statistical Areas. These core areas comprise a set of communities, often with a population center and shared economic and social ties. 
