@@ -8,11 +8,11 @@ The purpose is to analyze Census Tract Population data from 2000 to 2010, and ca
 
 # Table of Contents
 1. [Problem](README.md#problem)
-2. [Approach](README.md#approcah)
-3. [Performance Test](README.md#performance)
-4. [Run Instruction](README.md#run)
+2. [Approach](README.md#Approcah)
+3. [Performance Test](README.md#Performance Test)
+4. [Run Instruction](README.md#Run Instruction)
 
-#Problem
+# Problem
 
 ## Input
 The input file is taken from the data file at [2000 to 2010 Census Tract Population Change](https://www.census.gov/data/tables/time-series/dec/metro-micro/tract-change-00-10.html), which contains population counts for census tracts and how much they've changed over the decade. While census tracts are fairly small geographical areas inhabited by 1,200 to 8,000 people, they also can be grouped into larger Metropolitan and Micropolitan Statistical Areas called Core Based Statistical Areas. These core areas comprise a set of communities, often with a population center and shared economic and social ties. 
@@ -48,6 +48,7 @@ The provided data set is only 10MB. In order to test the performance of multi-pr
 Performance test is run on a computer with Intel CORE i5 8th Gen, and memeroy of 8G. Multi-processing program with 8 process takes 65 seconds to finish while sigle-processing takes 278 seconds to complete. Multi-processing program is much more efficient!
 
 # Run instruction
+<pre>
 process3.py [-h] [-i INPUT] [-o OUTPUT] [-c NUM_CPUS] [-b BUF_SIZE]
 optional arguments:
   -h, --help            show this help message and exit
@@ -64,3 +65,5 @@ optional arguments:
                         a minor performance optimization
 
 You an run `sh run.sh` to test the program
+<pre>
+
