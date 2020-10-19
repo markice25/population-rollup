@@ -7,6 +7,11 @@ import os
 from CBSA import CBSA
 
 def process_line(cbsa, cols):
+    """
+    process one entry of data and update the CBSA object
+    @cbsa: CBSA objects
+    @cols: list, contains one entry 
+    """
     cbsa09, cbsa_t, pop_00, pop_10 = cols[7], cols[8], cols[12], cols[14]
     if cbsa09:
         if not cbsa.has_cbsa09(cbsa09):
@@ -16,11 +21,25 @@ def process_line(cbsa, cols):
         cbsa.add_tol_pop_10(cbsa09, int(pop_10))
 
 def process_lines(cbsa, lines):
+    """
+    process multiple entries of data and update the CBSA object
+    @cbsa: CBSA objects
+    @cols: list of list
+    """
     csvlines = csv.reader(lines)
     for cols in csvlines:
         process_line(cbsa, cols)
 
 def worker_entry(q_out, filename, chunk_size, buf_size, index):
+    """
+    Create a new CBSA object, retrieve data and update the CBSA ojects
+    This function can be run in parallel with multiprocessing
+    @q_out: Queue() oject, communication channel between processes
+    @filename: string, Data path
+    @chunk_size: int
+    @buf_size: int, store temporary data
+    @index: int, index of process
+    """
     print('Worker #{0} started, file size: {1}'.format(index, chunk_size))
     
     # Unfortunately we have to open the file as "rb" since it uses \r\n
@@ -64,7 +83,10 @@ def worker_entry(q_out, filename, chunk_size, buf_size, index):
 
 def spawn_workers(filename, num_cpus, buf_size):
     """
-    create processes and give a queue to each process
+    create processes and assign queue, chunk_size and index to each process
+    @filename: string, Data path
+    @num_cpus: int, number of CPU 
+    @buf_size: int
     """
     total_size = os.path.getsize(filename)
     if total_size < 1024 * 10 : num_cpus = 1
@@ -93,6 +115,11 @@ def spawn_workers(filename, num_cpus, buf_size):
     return proc_list
 
 def aggregate(proc_list):
+    """
+    merge all the results from multiple processes
+    @proc_list: a list of processes
+    @return: CBSA object
+    """
     cbsa = CBSA()
     
     # Loop through all workers to get their results from the queue

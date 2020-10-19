@@ -36,7 +36,7 @@ The csv file is created on a windows system, so the new line is specified by "\r
 Class CBSA contains all aggregated data (counts, total population in 2000/2020, and population change)of each Core Based Statistical Area. It also contains a bundle of functions which help to get data, update data, add new cbsa and save the data as `report.csv`.
 
 ## Multi-processing
-Multi-processing is implemented to speed up data processing, especially when dealing with big data. A file of large size is split into n chunks, and each chunk is assigned to an independent process. Each process operates a single CBSA object seperately, and merge all the CBSA objects together at the end.
+Multi-processing is implemented to speed up data processing, especially when dealing with big data. A file of large size is split into n chunks, and each chunk is assigned to an independent process. Each process operates a single CBSA object in parallel. At the end, all the CBSA objects is merged together.
 
 ![Screenshot](https://github.com/markice25/population-rollup/blob/main/doc/Slide1.jpg)
 
@@ -44,8 +44,8 @@ Multi-processing is implemented to speed up data processing, especially when dea
 # Performance Test
 1.  Data augmentation
 The provided data set is only 10MB. In order to test the performance of multi-processing, data is augmented by repeating the same data by 1000 times. The augmented data-set is 5GB
-2.  Multi-processing vs Single processing
-Performance test is run on a computer with Intel CORE i5 8th Gen, and memeroy of 8G. Multi-processing program with 8 process takes 65 seconds to finish while sigle-processing takes 278 seconds to complete. Multi-processing program is much more efficient!
+2.  Multi-processing vs Sequential execution
+Performance test is run on a computer with Intel CORE i5 8th Gen, and memeroy of 8G. Multi-processing program with 8 process takes 65 seconds to finish while sequential execution takes 278 seconds to complete. Multi-processing program is much more efficient!
 
 # Run instruction
 <pre>
