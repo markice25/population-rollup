@@ -75,7 +75,7 @@ def calc_growth_rate(d):
 
 def save_report(cbsa):
     cbsa_dict = cbsa.get_cbsa_dict()
-    with open("output/report2.csv","w") as f:
+    with open("output/report.csv","w") as f:
         #writer = csv.writer(f)
         for key, value in cbsa_dict.items():
             print(value)
@@ -104,7 +104,7 @@ def worker_entry(q_out, file_name, split_file_size, index):
 #            cols = read_line(line)
 #            process_line(cbsa, cols)
 
-    print("read done")
+#    print("read done")
     csvlines = csv.reader(lines)
     for l in csvlines:
         cols = l
@@ -113,9 +113,9 @@ def worker_entry(q_out, file_name, split_file_size, index):
 #        cols = read_line(l)
 #        process_line(cbsa, cols)
 
-    print("qout")
+#    print("qout")
     q_out.put(cbsa)
-    print("work done")
+#    print("work done")
     
 def spawn_workers(file_name):
     """
@@ -152,10 +152,10 @@ def send_data(file_name,q_data_list):
 #                break
     for q_data in q_data_list:
         q_data.put(1)
-    print("data sent")
+#    print("data sent")
    
 def aggregate(proc_list,q_out_list):
-    print("start_merge")
+#    print("start_merge")
     cbsa = CBSA()
     
     cpu = cpu_count()
@@ -168,16 +168,16 @@ def aggregate(proc_list,q_out_list):
     for proc in proc_list:
         proc.join() 
     cbsa.calc_growth_rate()
-    print("done")
+#    print("done")
     return cbsa
     
 if __name__ == "__main__":
-    start = time.time()
+#    start = time.time()
     file_name = "input/censustract-00-10.csv"
     proc_list, q_out_list = spawn_workers(file_name)
     cbsa = aggregate(proc_list, q_out_list)
     
     save_report(cbsa)
     cbsa = cbsa.get_cbsa_dict()
-    print(cbsa[list(cbsa.keys())[0]])
-    print(time.time() - start)
+#    print(cbsa[list(cbsa.keys())[0]])
+#    print(time.time() - start)
