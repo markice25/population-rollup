@@ -9,8 +9,8 @@ The purpose is to analyze Census Tract Population data from 2000 to 2010, and ca
 # Table of Contents
 1. [Problem](README.md#problem)
 2. [Approach](README.md#Approach)
-3. [Performance Test](README.md#Performance&#32Test)
-4. [Run Instruction](README.md#Run&#32Instruction)
+3. [Performance Test](README.md#Performance-Test)
+4. [Run Instruction](README.md#Run-Instruction)
 
 # Problem
 
