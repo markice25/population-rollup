@@ -6,7 +6,7 @@ class CBSA:
         """
         cbsa_dict stores data of each Core Based Statistical Area
         key: cbsa09
-        value: [cbsa_t, pop_00, pop_10, pop_growth_rate]
+        value: [cbsa_t, total_pop_00, total_pop_10, pop_growth_rate]
         """
         self.cbsa_dict = {}
     
